@@ -29,13 +29,21 @@ class Auto:
         else:
             print("¡Ya déjame descansar por favor!")
 
-mi_auto = Auto("Toyota", "Corolla", 2020)
-mi_auto.mostrar_informacion()
+    @classmethod
+    def instancia_Auto(cls,modelo):
+        anio = 2024
+        marca= "Toyota"
+        return cls(marca,modelo,anio)
+    @staticmethod
+    def comparar_kilometraje(auto1,auto2):
+        if auto1.kilometraje == auto2.kilometraje:
+            return "Si son autos iguales"
+        return  "No son iguales"
+    
+    @staticmethod
+    def mostrar_bienvenida(auto1):
+        print(f"¡Bienvenido al sistema de autos! {auto1.marca} {auto1.anio}")
 
-mi_auto.actualizar_kilometraje(500)
-mi_auto.mostrar_informacion()
-
-mi_auto.realizar_viaje(15000)
-mi_auto.mostrar_informacion()
-
-mi_auto.estado_auto()
+    @classmethod
+    def crear_auto_generico(cls):
+        return cls("Genérico", "Modelo Básico", 2024)
